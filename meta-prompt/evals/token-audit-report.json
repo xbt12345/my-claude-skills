@@ -1,0 +1,479 @@
+{
+  "method": {
+    "tokenizer": "o200k_base when available; conservative char fallback otherwise",
+    "scope": "static skill context and deterministic compiled prompts",
+    "historical_usage_attribution": "unavailable",
+    "historical_limit": "Claude/Codex logs meter whole sessions and cached context; they do not isolate net tokens caused by one Skill."
+  },
+  "static_context": {
+    "skill_entry_tokens": 2002,
+    "all_disclosable_tokens": 15066,
+    "files": [
+      {
+        "file": "SKILL.md",
+        "chars": 4252,
+        "tokens": 2002
+      },
+      {
+        "file": "references\\architecture.md",
+        "chars": 11263,
+        "tokens": 5607
+      },
+      {
+        "file": "references\\compiler.md",
+        "chars": 733,
+        "tokens": 353
+      },
+      {
+        "file": "references\\diagnosis.md",
+        "chars": 549,
+        "tokens": 360
+      },
+      {
+        "file": "references\\domain-patterns.md",
+        "chars": 2944,
+        "tokens": 2087
+      },
+      {
+        "file": "references\\evaluation.md",
+        "chars": 1376,
+        "tokens": 709
+      },
+      {
+        "file": "references\\goal-elicitation.md",
+        "chars": 651,
+        "tokens": 337
+      },
+      {
+        "file": "references\\model-adapters.md",
+        "chars": 480,
+        "tokens": 270
+      },
+      {
+        "file": "references\\taste-elicitation.md",
+        "chars": 564,
+        "tokens": 403
+      },
+      {
+        "file": "references\\token-economy.md",
+        "chars": 1393,
+        "tokens": 610
+      },
+      {
+        "file": "schemas\\eval-case.yaml",
+        "chars": 793,
+        "tokens": 243
+      },
+      {
+        "file": "schemas\\goal-contract.yaml",
+        "chars": 1007,
+        "tokens": 306
+      },
+      {
+        "file": "schemas\\prompt-spec.yaml",
+        "chars": 1693,
+        "tokens": 451
+      },
+      {
+        "file": "schemas\\run-record.yaml",
+        "chars": 2014,
+        "tokens": 588
+      },
+      {
+        "file": "schemas\\run-trace.yaml",
+        "chars": 1606,
+        "tokens": 421
+      },
+      {
+        "file": "schemas\\taste-contract.yaml",
+        "chars": 1158,
+        "tokens": 319
+      }
+    ]
+  },
+  "compiled_prompts": {
+    "count": 33,
+    "mean_tokens": 410.1,
+    "median_tokens": 477,
+    "min_tokens": 256,
+    "max_tokens": 519,
+    "sum_tokens": 13533,
+    "budget_pass_rate": 1.0,
+    "by_mode": {
+      "Guided": {
+        "count": 11,
+        "mean_tokens": 294.5,
+        "max_tokens": 319,
+        "budget": 350,
+        "pass_rate": 1.0
+      },
+      "Harness": {
+        "count": 22,
+        "mean_tokens": 467.9,
+        "max_tokens": 519,
+        "budget": 700,
+        "pass_rate": 1.0
+      }
+    },
+    "rows": [
+      {
+        "id": "D01-1",
+        "mode": "Guided",
+        "runtime": "chatgpt",
+        "tokens": 256,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D01-2",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 399,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D01-3",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 408,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D02-1",
+        "mode": "Guided",
+        "runtime": "chatgpt",
+        "tokens": 257,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D02-2",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 411,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D02-3",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 415,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D03-1",
+        "mode": "Guided",
+        "runtime": "chatgpt",
+        "tokens": 313,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D03-2",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 480,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D03-3",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 483,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D04-1",
+        "mode": "Guided",
+        "runtime": "coding-agent",
+        "tokens": 319,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D04-2",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 517,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D04-3",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 519,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D05-1",
+        "mode": "Guided",
+        "runtime": "coding-agent",
+        "tokens": 295,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D05-2",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 490,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D05-3",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 489,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D06-1",
+        "mode": "Guided",
+        "runtime": "coding-agent",
+        "tokens": 293,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D06-2",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 491,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D06-3",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 491,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D07-1",
+        "mode": "Guided",
+        "runtime": "coding-agent",
+        "tokens": 290,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D07-2",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 490,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D07-3",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 486,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D08-1",
+        "mode": "Guided",
+        "runtime": "coding-agent",
+        "tokens": 301,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D08-2",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 500,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D08-3",
+        "mode": "Harness",
+        "runtime": "coding-agent",
+        "tokens": 500,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D09-1",
+        "mode": "Guided",
+        "runtime": "chatgpt",
+        "tokens": 306,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D09-2",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 478,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D09-3",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 481,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D10-1",
+        "mode": "Guided",
+        "runtime": "chatgpt",
+        "tokens": 305,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D10-2",
+        "mode": "Harness",
+        "runtime": "image",
+        "tokens": 328,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D10-3",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 477,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D11-1",
+        "mode": "Guided",
+        "runtime": "chatgpt",
+        "tokens": 304,
+        "budget": 350,
+        "within_budget": true,
+        "detail_level": "guided",
+        "max_output_tokens": 900
+      },
+      {
+        "id": "D11-2",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 481,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      },
+      {
+        "id": "D11-3",
+        "mode": "Harness",
+        "runtime": "claude",
+        "tokens": 480,
+        "budget": 700,
+        "within_budget": true,
+        "detail_level": "full",
+        "max_output_tokens": 1600
+      }
+    ]
+  },
+  "comparison": {
+    "previous_mean_tokens": 558.3,
+    "current_mean_tokens": 410.1,
+    "reduction_rate": 0.2654
+  },
+  "api_equivalent_costs": {
+    "gpt-5.5": {
+      "generate_prompt_as_output_usd": 0.012303,
+      "skill_entry_uncached_input_usd": 0.01001,
+      "skill_entry_cached_input_usd": 0.001001,
+      "execute_compiled_prompt_estimate_usd": 0.02805,
+      "note": "API-equivalent estimate; subscription quota is not dollar billing."
+    },
+    "claude-opus-4.6": {
+      "generate_prompt_as_output_usd": 0.010252,
+      "skill_entry_uncached_input_usd": 0.01001,
+      "skill_entry_cached_input_usd": 0.001001,
+      "execute_compiled_prompt_estimate_usd": 0.023717,
+      "note": "API-equivalent estimate; subscription quota is not dollar billing."
+    },
+    "claude-sonnet-4.6": {
+      "generate_prompt_as_output_usd": 0.006151,
+      "skill_entry_uncached_input_usd": 0.006006,
+      "skill_entry_cached_input_usd": 0.000601,
+      "execute_compiled_prompt_estimate_usd": 0.01423,
+      "note": "API-equivalent estimate; subscription quota is not dollar billing."
+    }
+  }
+}

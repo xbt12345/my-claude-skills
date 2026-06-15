@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Meta-Prompt Run Trace",
+  "type": "object",
+  "required": [
+    "trace_version",
+    "target_runtime",
+    "adapter",
+    "mode",
+    "goal",
+    "requirement_links"
+  ],
+  "properties": {
+    "trace_version": {"const": "1.0"},
+    "target_runtime": {"type": "string"},
+    "adapter": {"type": "string"},
+    "mode": {"enum": ["Express", "Guided", "Harness"]},
+    "goal": {"type": "string"},
+    "requirement_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "instruction", "acceptance_test", "failure_handling"],
+        "properties": {
+          "id": {"type": "string"},
+          "instruction": {"type": "string"},
+          "acceptance_test": {"type": "string"},
+          "failure_handling": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "usage": {
+      "type": "object",
+      "properties": {
+        "estimated_prompt_tokens": {"type": "integer"},
+        "prompt_budget": {"type": "integer"},
+        "within_budget": {"type": "boolean"},
+        "estimator": {"type": "string"},
+        "actual_input_tokens": {"type": "integer"},
+        "cached_input_tokens": {"type": "integer"},
+        "actual_output_tokens": {"type": "integer"},
+        "tool_result_tokens": {"type": "integer"},
+        "questions": {"type": "integer"},
+        "retries": {"type": "integer"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Meta-Prompt Feedback Event",
+  "type": "object",
+  "required": [
+    "record_version",
+    "run_id",
+    "event",
+    "timestamp",
+    "runtime",
+    "mode",
+    "execution_intent",
+    "explicit_request",
+    "goal_summary"
+  ],
+  "properties": {
+    "record_version": {"const": "2.0"},
+    "run_id": {"type": "string", "minLength": 1, "maxLength": 80},
+    "event": {"enum": ["started", "completed", "failed", "abandoned"]},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "runtime": {"enum": ["codex", "claude-code", "other"]},
+    "model": {"type": "string", "maxLength": 80},
+    "mode": {"enum": ["Express", "Guided", "Harness"]},
+    "execution_intent": {
+      "enum": [
+        "optimize_only",
+        "optimize_and_execute",
+        "ask_after_optimization",
+        "implicit_task"
+      ]
+    },
+    "explicit_request": {"type": "boolean"},
+    "goal_summary": {"type": "string", "maxLength": 240},
+    "prompt_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "executed": {"type": "boolean"},
+    "outcome": {"enum": ["passed", "failed", "unknown"]},
+    "failure_category": {"type": ["string", "null"], "maxLength": 80},
+    "pattern_tags": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {"type": "string", "maxLength": 48}
+    },
+    "user_feedback": {"type": "string", "maxLength": 300},
+    "usage": {
+      "type": "object",
+      "properties": {
+        "estimated_prompt_tokens": {"type": "number", "minimum": 0},
+        "actual_input_tokens": {"type": "number", "minimum": 0},
+        "cached_input_tokens": {"type": "number", "minimum": 0},
+        "actual_output_tokens": {"type": "number", "minimum": 0},
+        "tool_result_tokens": {"type": "number", "minimum": 0},
+        "questions": {"type": "number", "minimum": 0},
+        "retries": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

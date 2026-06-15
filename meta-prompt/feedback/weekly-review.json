@@ -1,0 +1,23 @@
+{
+  "decision": "insufficient-data",
+  "runs": 3,
+  "minimum_runs": 5,
+  "passed": 3,
+  "failed": 0,
+  "abandoned": 0,
+  "pass_rate": 1.0,
+  "modes": {
+    "Harness": 2,
+    "Guided": 1
+  },
+  "repeated_failures": {},
+  "all_failure_categories": {},
+  "mean_retries": 0.33,
+  "mean_questions": 0.33,
+  "mean_estimated_prompt_tokens": null,
+  "review_goals": [],
+  "blind_eval_required": false,
+  "as_of": "2026-06-14",
+  "days": 7,
+  "corrupt_rows": 0
+}

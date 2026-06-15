@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prompt Spec",
+  "type": "object",
+  "required": [
+    "goal_contract",
+    "mode",
+    "highest_priority_constraint",
+    "requirements",
+    "deliverable",
+    "final_check"
+  ],
+  "properties": {
+    "goal_contract": {"type": "object"},
+    "taste_contract": {"type": ["object", "null"]},
+    "mode": {"enum": ["Express", "Guided", "Harness"]},
+    "target_runtime": {"type": "string"},
+    "highest_priority_constraint": {"type": "string", "minLength": 1},
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "requirement",
+          "prompt_instruction",
+          "acceptance_test",
+          "failure_handling"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^R[0-9]+$"},
+          "requirement": {"type": "string"},
+          "prompt_instruction": {"type": "string"},
+          "acceptance_test": {"type": "string"},
+          "failure_handling": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "failure_modes": {"type": "array", "items": {"type": "string"}},
+    "evidence_and_uncertainty": {"type": "array", "items": {"type": "string"}},
+    "deliverable": {"type": "object"},
+    "final_check": {"type": "array", "items": {"type": "string"}},
+    "token_budget": {
+      "type": "object",
+      "properties": {
+        "max_prompt_tokens": {"type": "integer", "minimum": 64},
+        "max_output_tokens": {"type": "integer", "minimum": 64}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

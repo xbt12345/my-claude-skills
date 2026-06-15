@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Taste Contract",
+  "type": "object",
+  "required": ["desired_effect", "must_have", "must_avoid", "taste_axes"],
+  "properties": {
+    "desired_effect": {"type": "string", "minLength": 1},
+    "positive_references": {"type": "array", "items": {"type": "string"}},
+    "negative_references": {"type": "array", "items": {"type": "string"}},
+    "pairwise_preferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["preferred", "rejected", "reason"],
+        "properties": {
+          "preferred": {"type": "string"},
+          "rejected": {"type": "string"},
+          "reason": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "must_have": {"type": "array", "items": {"type": "string"}},
+    "must_avoid": {"type": "array", "items": {"type": "string"}},
+    "flexible_dimensions": {"type": "array", "items": {"type": "string"}},
+    "taste_axes": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "reviewer": {"type": "string"}
+  },
+  "additionalProperties": false
+}
