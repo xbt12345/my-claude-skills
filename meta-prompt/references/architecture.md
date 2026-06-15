@@ -640,9 +640,9 @@ python scripts/weekly_reflect.py
 
 ## 16. 版本与同步
 
-- 规范路径：`<agents-home>/skills/meta-prompt`（单一事实源）
-- Runtime 路径：`<runtime-skills-dir>/meta-prompt`，如 Claude Code 的 `~/.claude/skills/meta-prompt`
-- 多 runtime 时建议用符号链接/Junction 指向规范路径，避免多副本分叉。
+- 规范路径：`<agents-home>\skills\meta-prompt`
+- Claude Code 路径：`~/.claude-home\skills\meta-prompt`
+- `.claude\skills` 当前通过 Junction 指向 `.agents\skills`。
 
 因此两端看到的是同一份 Skill。不要在 Junction 两侧分别维护副本。
 
