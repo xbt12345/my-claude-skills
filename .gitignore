@@ -5,3 +5,10 @@ __pycache__/
 .DS_Store
 Thumbs.db
 feedback/pending/
+
+# Regenerable evaluation reports — CI regenerates them via scripts.
+# Inputs (diverse-scenarios.json, regression.json, blind-holdout.json) stay tracked.
+meta-prompt/evals/diverse-benchmark-report.json
+meta-prompt/evals/diverse-benchmark-report.md
+meta-prompt/evals/token-audit-report.json
+meta-prompt/evals/token-audit-report.md

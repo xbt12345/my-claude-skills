@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class MetaPromptStructureTests(unittest.TestCase):
+    @unittest.skipUnless((ROOT.parents[2] / "AGENTS.md").is_file(), "requires local agent environment")
     def test_global_policy_declares_automatic_meta_prompt_routing(self):
         policy = ROOT.parents[2] / "AGENTS.md"
         text = policy.read_text(encoding="utf-8")

@@ -17,6 +17,7 @@ class RuntimeIntegrationTests(unittest.TestCase):
         self.assertIn("run_feedback.py finish", text)
         self.assertNotIn("Prompt 本身包含明确可执行任务", text)
 
+    @unittest.skipUnless((HOME / "AGENTS.md").is_file(), "requires local agent environment")
     def test_global_policy_does_not_infer_intent_from_optimized_prompt(self):
         text = (HOME / "AGENTS.md").read_text(encoding="utf-8")
 
@@ -25,6 +26,10 @@ class RuntimeIntegrationTests(unittest.TestCase):
         self.assertIn("ask_after_optimization", text)
         self.assertNotIn("Prompt 含明确执行任务则继续执行", text)
 
+    @unittest.skipUnless(
+        (HOME / ".agents/harness/hooks/session-stop.sh").is_file(),
+        "requires local agent environment",
+    )
     def test_claude_stop_hook_runs_no_model_stale_cleanup(self):
         text = (
             HOME / ".agents/harness/hooks/session-stop.sh"
@@ -34,6 +39,10 @@ class RuntimeIntegrationTests(unittest.TestCase):
         self.assertIn("abandon --stale", text)
         self.assertNotIn("blind_eval.py", text)
 
+    @unittest.skipUnless(
+        (HOME / ".codex/automations/meta-prompt/automation.toml").is_file(),
+        "requires local agent environment",
+    )
     def test_weekly_automation_gates_blind_evaluation(self):
         text = (
             HOME / ".codex/automations/meta-prompt/automation.toml"
